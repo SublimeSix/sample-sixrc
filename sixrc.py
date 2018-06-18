@@ -42,15 +42,7 @@ def load_plugins():
         _logger.error(e)
 
 
-def plugin_loaded():
-    # Now the full Sublime Text API is available to us.
-    if not is_six_available():
-        return
-
-    # Init plugins. We do this here because now we know that Six is definitely
-    # available.
-    load_plugins()
-
+def define_mappings():
     from Six._init_ import editor
     from Six.lib.constants import Mode
 
@@ -59,3 +51,14 @@ def plugin_loaded():
     editor.mappings.add(Mode.Normal, "<CR>", "/")
     editor.mappings.add(Mode.Normal, "<Space>", ":")
     editor.mappings.add(Mode.Normal, "Y", "y$")
+
+
+def plugin_loaded():
+    # Now the full Sublime Text API is available to us.
+    if not is_six_available():
+        return
+
+    # Init plugins. We do this here because now we know that Six is definitely
+    # available.
+    load_plugins()
+    define_mappings()
