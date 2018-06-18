@@ -1,4 +1,4 @@
-*					text=auto eol=lf
+*                   text=auto eol=lf
 
-*.py				text diff=python
-*.pyc				binary
+*.py                text diff=python
+*.pyc               binary
