@@ -25,7 +25,7 @@ _logger.info("loading Six configuration")
 
 def is_six_available():
     settings = sublime.load_settings("Preferences.sublime-settings")
-    return 'Six' not in settings.get("ignored_packages"):
+    return 'Six' not in settings.get("ignored_packages")
 
 
 def load_plugins():
@@ -55,6 +55,7 @@ def plugin_loaded():
     from Six.lib.constants import Mode
 
     # Mappings -- optional.
-    editor.mappings.add(Mode.Normal, "Y", "y$")
-    editor.mappings.add(Mode.Normal, "<Space>", ":")
     editor.mappings.add(Mode.Normal, ",pp", "a()<Esc>i")
+    editor.mappings.add(Mode.Normal, "<CR>", "/")
+    editor.mappings.add(Mode.Normal, "<Space>", ":")
+    editor.mappings.add(Mode.Normal, "Y", "y$")
