@@ -26,6 +26,7 @@ if IS_SIX_INSTALLED:
     # We are assuming that the Six Surround plugin is installed. Adjust as necessary.
     from User.six.surround import (
         _six_surround_change,
+        _six_surround_delete,
         surround,
         )
 
